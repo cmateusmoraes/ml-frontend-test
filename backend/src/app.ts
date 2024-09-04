@@ -15,8 +15,8 @@ app.use(cors({ origin: config.allowedDomain }));
 
 // Limitar o número de requisições por IP
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutos
-    max: 100, // Limite de 100 requisições
+  windowMs: 15 * 60 * 1000, // 15 minutos
+  max: 100, // Limite de 100 requisições
 });
 app.use(limiter);
 
@@ -26,7 +26,7 @@ app.use(express.json());
 app.use('/api', itemsRouter);
 
 app.get('/', (req, res) => {
-    res.send('API is running');
+  res.send('API is running');
 });
 
 export default app;
