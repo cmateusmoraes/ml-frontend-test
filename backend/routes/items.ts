@@ -1,7 +1,7 @@
 import * as express from 'express';
 import axios from 'axios';
 import { config } from '../src/config';
-import { ApiResponse, ApiItem, Item } from '../src/types/apiTypes'; // Importa as interfaces
+import { ApiResponse, ApiItem, Item } from '../src/types/apiTypes';
 
 const router = express.Router();
 
@@ -14,10 +14,9 @@ router.get('/items', async (req, res) => {
 
   try {
     const response = await axios.get<ApiResponse>(
-      `${config.apiBaseUrl}/sites/MLA/search?q=${query}`,
+      `${config.apiBaseUrl}/sites/MLB/search?q=${query}`,
     );
 
-    // Verifica se há resultados
     if (!response.data.results || response.data.results.length === 0) {
       return res.status(200).json({
         author: { name: 'Mateus', lastname: 'Moraes' },
@@ -30,6 +29,7 @@ router.get('/items', async (req, res) => {
       (item: ApiItem): Item => ({
         id: item.id,
         title: item.title,
+        sanitized_title: item.sanitized_title,
         price: {
           currency: item.currency_id,
           amount: Math.floor(item.price),
@@ -68,7 +68,6 @@ router.get('/items/:id', async (req, res) => {
     const item = itemResponse.data;
     const description = descriptionResponse.data.plain_text;
 
-    // Se o item não existir
     if (!item) {
       return res.status(404).json({ message: 'Item not found' });
     }
@@ -81,6 +80,7 @@ router.get('/items/:id', async (req, res) => {
       item: {
         id: item.id,
         title: item.title,
+        sanitized_title: item.sanitized_title,
         price: {
           currency: item.currency_id,
           amount: Math.floor(item.price),

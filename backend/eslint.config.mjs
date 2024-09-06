@@ -10,11 +10,11 @@ export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  prettierConfig, // Desativa regras que conflitam com o Prettier
+  prettierConfig,
   {
     plugins: { prettier },
     rules: {
-      'prettier/prettier': ['error'], // Ativa o Prettier como regra de erro
+      'prettier/prettier': ['error'],
     },
   },
 ];

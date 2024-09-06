@@ -1,0 +1,56 @@
+@import './variables';
+@import './mixins';
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  background-color: #ededed;
+  font-family: $font-primary;
+  font-weight: 400;
+  font-size: 1.6rem; /* Equivale a 16px */
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  color: $text-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-primary;
+  font-weight: 600;
+  margin: 0 0 .5rem;
+  color: #000000
+}
+
+h1 {
+  @include text-4xl;
+}
+
+h2 {
+  @include text-3xl;
+}
+
+h3 {
+  @include text-2xl;
+}
+
+p {
+  font-size: 1.6rem; /* Equivale a 16px */
+}
+
+p {
+  font-family: $font-primary;
+  font-weight: $font-light;
+  margin-bottom: 1rem;
+}
+
+//Acessibilidade
+input:focus, button:focus {
+  outline: 3px solid #333366;
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  display: none;
+ }

@@ -1,0 +1,22 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.mlHeader {
+  padding: 1.3rem 0;
+  background-color: $primary-color;
+
+  nav {
+    @include container;
+    display: flex;
+    align-items: center;
+
+    a {
+      flex-shrink: 0;
+      width: 150px;
+    }
+
+    form {
+      width: calc(100% - 150px);
+    }
+  }
+}

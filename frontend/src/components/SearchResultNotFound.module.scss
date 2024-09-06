@@ -1,0 +1,42 @@
+@import "../styles/variables";
+
+.searchResultNoFound {
+  max-width: 101.8rem;
+  width: 100%;
+  margin: 11rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 3.8rem 4rem 3.2rem;
+  border-radius: 0.8rem;
+}
+
+.icon {
+  margin-right: 5rem;
+  width: 8rem;
+  height: 8rem;
+}
+
+ul {
+  padding: 0 0 0 2.6rem;
+  list-style: disc;
+
+  li {
+    margin-bottom: 0;
+    font-weight: 300;
+
+    a {
+      color: $secondary-color;
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    strong {
+      font-weight: 300;
+    }
+  }
+}

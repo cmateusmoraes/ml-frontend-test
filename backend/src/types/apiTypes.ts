@@ -2,6 +2,7 @@
 export interface ApiItem {
   id: string;
   title: string;
+  sanitized_title: string;
   currency_id: string;
   price: number;
   thumbnail: string;
@@ -20,6 +21,7 @@ export interface ApiResponse {
 export interface Item {
   id: string;
   title: string;
+  sanitized_title: string;
   price: {
     currency: string;
     amount: number;

@@ -7,10 +7,8 @@ import itemsRouter from '../routes/items';
 
 const app = express();
 
-// Segurança
 app.use(helmet());
 
-// Limita requisições ao domínio permitido
 app.use(cors({ origin: config.allowedDomain }));
 
 // Limitar o número de requisições por IP

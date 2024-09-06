@@ -1,0 +1,11 @@
+@import "../variables";
+@import "../mixins";
+
+.ml-header {
+  height: 10rem;
+  background-color: $primary-color;
+
+  nav {
+    @include container;
+  }
+}
