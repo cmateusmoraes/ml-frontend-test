@@ -1,15 +1,15 @@
-import * as express from 'express';
-import axios from 'axios';
-import { config } from '../src/config';
-import { ApiResponse, ApiItem, Item } from '../src/types/apiTypes';
+import * as express from "express";
+import axios from "axios";
+import { config } from "../src/config";
+import { ApiResponse, ApiItem, Item } from "../src/types/apiTypes";
 
 const router = express.Router();
 
 // Rota para busca de itens
-router.get('/items', async (req, res) => {
+router.get("/items", async (req, res) => {
   const query = req.query.q;
   if (!query) {
-    return res.status(400).json({ message: 'Query is required' });
+    return res.status(400).json({ message: "Query is required" });
   }
 
   try {
@@ -19,7 +19,7 @@ router.get('/items', async (req, res) => {
 
     if (!response.data.results || response.data.results.length === 0) {
       return res.status(200).json({
-        author: { name: 'Mateus', lastname: 'Moraes' },
+        author: { name: "Mateus", lastname: "Moraes" },
         items: [],
       });
     }
@@ -43,20 +43,20 @@ router.get('/items', async (req, res) => {
 
     res.json({
       author: {
-        name: 'Mateus',
-        lastname: 'Moraes',
+        name: "Mateus",
+        lastname: "Moraes",
       },
       items,
     });
   } catch (error) {
     // Erro de comunicação com a API ML
     console.error(error);
-    res.status(500).json({ message: 'Error fetching items from external API' });
+    res.status(500).json({ message: "Error fetching items from external API" });
   }
 });
 
 // Rota para detalhes do item por ID
-router.get('/items/:id', async (req, res) => {
+router.get("/items/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -69,13 +69,13 @@ router.get('/items/:id', async (req, res) => {
     const description = descriptionResponse.data.plain_text;
 
     if (!item) {
-      return res.status(404).json({ message: 'Item not found' });
+      return res.status(404).json({ message: "Item not found" });
     }
 
     res.json({
       author: {
-        name: 'Mateus',
-        lastname: 'Moraes',
+        name: "Mateus",
+        lastname: "Moraes",
       },
       item: {
         id: item.id,
@@ -98,7 +98,7 @@ router.get('/items/:id', async (req, res) => {
     console.error(error);
     res
       .status(500)
-      .json({ message: 'Error fetching item details from external API' });
+      .json({ message: "Error fetching item details from external API" });
   }
 });
 

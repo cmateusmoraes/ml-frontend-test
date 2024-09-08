@@ -1,9 +1,10 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
-import { config } from './config';
-import itemsRouter from '../routes/items';
+import cors from "cors";
+import express from "express";
+import rateLimit from "express-rate-limit";
+import helmet from "helmet";
+
+import itemsRouter from "../routes/items";
+import { config } from "./config";
 
 const app = express();
 
@@ -16,15 +17,16 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutos
   max: 100, // Limite de 100 requisições
 });
+
 app.use(limiter);
 
 app.use(express.json());
 
 // Registro das rotas
-app.use('/api', itemsRouter);
+app.use("/api", itemsRouter);
 
-app.get('/', (req, res) => {
-  res.send('API is running');
+app.get("/", (req, res) => {
+  res.send("API is running");
 });
 
 export default app;
