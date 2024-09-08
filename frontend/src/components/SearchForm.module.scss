@@ -1,36 +1,60 @@
 .searchForm {
   position: relative;
 
-  input[type=text] {
+  input[type="text"] {
     appearance: none;
     position: relative;
-    color: rgba(0,0,0,.9);
+    color: rgba(0, 0, 0, 0.9);
     font-size: 16px;
     margin: 0;
     font-family: inherit;
     border-radius: 2px;
     background-color: #fff;
     display: flex;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
-    width: calc(100% - 150px);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     padding: 10px 60px 10px 15px;
     border-style: solid;
-    border-color: rgba(0,0,0,0);
-    border-width: 1.5px
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 1.5px;
+    width: 100%;
   }
 
-  input[type=text]:focus,input[type=search].focus {
-    box-shadow: 0 0 1px rgba(0,0,0,0);
-    outline: 0
+  input[type="text"]:focus,
+  input[type="search"].focus {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    outline: 0;
   }
 
   button {
     cursor: pointer;
     position: absolute;
-    right: 8rem;
-    top: 1rem;
-
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 0 1.5rem;
     border: none !important;
     background-color: transparent;
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+
+    img {
+      width: 2.3rem;
+      height: auto;
+      transition: all 0.3s ease-out;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      height: 20px;
+      border-left: 1px solid #e6e6e6;
+      position: absolute;
+      top: 12px;
+      left: 0;
+    }
   }
 }

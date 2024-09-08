@@ -1,5 +1,6 @@
-import React from 'react';
-import styles from './SearchResultNotFound.module.scss';
+import React from "react";
+
+import styles from "./SearchResultNotFound.module.scss";
 
 function NoResults() {
   return (
@@ -21,7 +22,10 @@ function NoResults() {
             Utilize <strong>palavras mais genéricas</strong> ou menos palavras.
           </li>
           <li>
-            <a href="/categorias" className={styles.link}>Navegue pelas categorias</a> para encontrar um produto semelhante.
+            <a href="/categorias" className={styles.link}>
+              Navegue pelas categorias
+            </a>{" "}
+            para encontrar um produto semelhante.
           </li>
         </ul>
       </div>

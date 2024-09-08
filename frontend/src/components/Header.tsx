@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import SearchForm from './SearchForm';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import styles from './Header.module.scss';
+import styles from "./Header.module.scss";
+import SearchForm from "./SearchForm";
 
 type HeaderProps = {
   query: string;
@@ -15,7 +15,10 @@ function Header({ query, setQuery, handleSearch, resetSearch }: HeaderProps) {
   return (
     <header className={styles.mlHeader} role="banner">
       <nav aria-label="Main navigation">
-        <Link to="/" aria-label="Voltar para a página inicial" onClick={resetSearch}>
+        <Link
+          to="/"
+          aria-label="Voltar para a página inicial"
+          onClick={resetSearch}>
           <img
             src="/images/logo-mercadolivre-25-anos.png"
             alt="Logo Mercado Livre"
@@ -23,7 +26,11 @@ function Header({ query, setQuery, handleSearch, resetSearch }: HeaderProps) {
             height="34"
           />
         </Link>
-        <SearchForm query={query} setQuery={setQuery} handleSearch={handleSearch} />
+        <SearchForm
+          query={query}
+          setQuery={setQuery}
+          handleSearch={handleSearch}
+        />
       </nav>
     </header>
   );

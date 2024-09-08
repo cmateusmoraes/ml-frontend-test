@@ -1,7 +1,7 @@
 export interface Item {
   id: string;
   title: string;
-  sanitized_title: string,
+  sanitized_title: string;
   price: {
     currency: string;
     amount: number;

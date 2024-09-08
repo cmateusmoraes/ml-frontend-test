@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import styles from './SearchForm.module.scss';
+import styles from "./SearchForm.module.scss";
 
 type SearchFormProps = {
   query: string;
@@ -10,7 +10,11 @@ type SearchFormProps = {
 
 function SearchForm({ query, setQuery, handleSearch }: SearchFormProps) {
   return (
-    <form className={styles.searchForm} role="search" aria-label="Formulário de busca de produtos" onSubmit={handleSearch}>
+    <form
+      className={styles.searchForm}
+      role="search"
+      aria-label="Formulário de busca de produtos"
+      onSubmit={handleSearch}>
       <label htmlFor="search" className="visually-hidden">
         Buscar produtos
       </label>

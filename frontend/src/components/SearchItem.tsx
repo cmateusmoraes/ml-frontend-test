@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 type SearchItemProps = {
   item: {
@@ -17,10 +17,14 @@ type SearchItemProps = {
 function SearchItem({ item }: SearchItemProps) {
   return (
     <li>
-      <Link to={`/items/${item.id}-${item.sanitized_title}`} aria-label={`Ver detalhes do produto ${item.title}`}>
+      <Link
+        to={`/items/${item.id}-${item.sanitized_title}`}
+        aria-label={`Ver detalhes do produto ${item.title}`}>
         <img src={item.picture} alt={`Imagem do produto ${item.title}`} />
         <p>{item.title}</p>
-        <p>{item.price.currency} {item.price.amount}</p>
+        <p>
+          {item.price.currency} {item.price.amount}
+        </p>
       </Link>
     </li>
   );

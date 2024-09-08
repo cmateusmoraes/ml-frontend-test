@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SearchPage from './pages/SearchPage';
-import ItemDetailsPage from './pages/ItemDetailsPage';
+import ItemDetailsPage from "./pages/ItemDetailsPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<SearchPage />} />
+
         <Route path="/items/:id" element={<ItemDetailsPage />} />
       </Routes>
     </Router>

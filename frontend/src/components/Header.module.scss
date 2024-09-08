@@ -2,6 +2,7 @@
 @import "../styles/mixins";
 
 .mlHeader {
+  position: relative;
   padding: 1.3rem 0;
   background-color: $primary-color;
 
@@ -9,14 +10,11 @@
     @include container;
     display: flex;
     align-items: center;
-
-    a {
-      flex-shrink: 0;
-      width: 150px;
-    }
+    justify-content: space-between;
+    gap: 5rem;
 
     form {
-      width: calc(100% - 150px);
+      width: 100%;
     }
   }
 }

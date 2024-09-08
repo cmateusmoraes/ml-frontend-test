@@ -1,17 +1,18 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useFetch } from '../hooks/useFetch';
-import { ItemDetails } from '../types/types';
+import React from "react";
+import { useParams } from "react-router-dom";
+
+import { useFetch } from "../hooks/useFetch";
+import { ItemDetails } from "../types/types";
 
 function ItemDetailsPage() {
-  const { id } = useParams<{ id: string }>();  // Suponha que id seja string, não opcional
+  const { id } = useParams<{ id: string }>(); // Suponha que id seja string, não opcional
 
   // Extrair apenas o ID antes do hífen ou usar string vazia como fallback
-  const extractedId = id ? id.split('-')[0] : '';
+  const extractedId = id ? id.split("-")[0] : "";
 
   // Chamada do hook sempre, com o ID extraído
   const { data, error } = useFetch<{ item: ItemDetails }>(
-    extractedId ? `/items/${extractedId}` : null
+    extractedId ? `/items/${extractedId}` : null,
   );
 
   if (!id) {

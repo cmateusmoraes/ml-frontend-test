@@ -1,5 +1,5 @@
-@import './variables';
-@import './mixins';
+@import "./variables";
+@import "./mixins";
 
 html {
   font-size: 62.5%; /* 1rem = 10px */
@@ -16,11 +16,16 @@ body {
   color: $text-color;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-primary;
   font-weight: 600;
-  margin: 0 0 .5rem;
-  color: #000000
+  margin: 0 0 0.5rem;
+  color: #000000;
 }
 
 h1 {
@@ -46,11 +51,16 @@ p {
 }
 
 //Acessibilidade
-input:focus, button:focus {
+input:focus,
+button:focus {
   outline: 3px solid #333366;
   outline-offset: 2px;
 }
 
 .visually-hidden {
   display: none;
- }
+}
+
+* {
+  box-sizing: border-box;
+}
