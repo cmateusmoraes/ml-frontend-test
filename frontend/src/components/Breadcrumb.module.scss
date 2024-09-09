@@ -1,0 +1,40 @@
+@import "../styles/variables";
+
+.breadcrumb {
+  padding: 1.6rem 0;
+
+  ol {
+    list-style: none;
+    display: flex;
+
+    li {
+      margin-right: 8px;
+
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 8px;
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='6'%20height='8'%3E%3Cpath%20fill='none'%20stroke='%23666'%20d='M1%200l4%204-4%204'%3E%3C/path%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 8px;
+      }
+
+      &:last-child:after {
+        display: none;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $secondary-color;
+      font-size: 14px;
+      font-weight: 400;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

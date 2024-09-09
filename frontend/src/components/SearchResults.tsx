@@ -1,27 +1,19 @@
 import React from "react";
 
-import SearchItem from "./SearchItem";
+import { Item } from "../types/types";
+import CardItem from "./CardItem";
 
 type SearchResultsProps = {
-  items: {
-    id: string;
-    sanitized_title: string;
-    picture: string;
-    title: string;
-    price: {
-      currency: string;
-      amount: number;
-    };
-  }[];
+  items: Item[];
 };
 
 function SearchResults({ items }: SearchResultsProps) {
   return (
-    <ul>
+    <ol role="list">
       {items.map((item) => (
-        <SearchItem key={item.id} item={item} />
+        <CardItem key={item.id} item={item} />
       ))}
-    </ul>
+    </ol>
   );
 }
 

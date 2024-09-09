@@ -16,6 +16,11 @@ body {
   color: $text-color;
 }
 
+main {
+  @include container;
+  padding: 1rem 0;
+}
+
 h1,
 h2,
 h3,
@@ -42,6 +47,12 @@ h3 {
 
 p {
   font-size: 1.6rem; /* Equivale a 16px */
+}
+
+ol, ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 p {

@@ -1,0 +1,51 @@
+@import "../styles/variables";
+
+.cardItem {
+  a {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 2rem 5rem;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+  }
+
+  img {
+    flex-shrink: 0;
+    width: 20rem;
+    height: 20rem;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .text {
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0 0 1rem;
+    color: #333333;
+    text-decoration: none;
+  }
+
+  p {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: #333333;
+    margin: 0 0 1rem;
+
+    &.freeShipping {
+      color: $tertiary-color;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+  }
+
+  &:first-child {
+    border-radius: 0.4rem 0.4rem 0 0;
+  }
+}

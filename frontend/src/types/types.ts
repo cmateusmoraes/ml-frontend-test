@@ -7,6 +7,8 @@ export interface Item {
     amount: number;
     decimals: number;
   };
+  categories: string[];
+  thumbnail_id: string;
   picture: string;
   condition: string;
   free_shipping: boolean;

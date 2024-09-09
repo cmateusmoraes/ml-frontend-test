@@ -1,11 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
+import Breadcrumb from "../components/Breadcrumb";
 import { useFetch } from "../hooks/useFetch";
 import { ItemDetails } from "../types/types";
+import styles from "./ItemDetailsPage.module.scss";
 
 function ItemDetailsPage() {
-  const { id } = useParams<{ id: string }>(); // Suponha que id seja string, não opcional
+  const { id } = useParams<{ id: string }>();
 
   // Extrair apenas o ID antes do hífen ou usar string vazia como fallback
   const extractedId = id ? id.split("-")[0] : "";
@@ -25,35 +27,40 @@ function ItemDetailsPage() {
   const { item } = data;
 
   return (
-    <article aria-labelledby="item-title">
-      <header>
-        <h1 id="item-title">{item.title}</h1>
-        <img
-          src={item.picture}
-          alt={`Imagem do produto ${item.title}`}
-          width="300"
-          height="300"
-        />
-      </header>
+    <main className={styles.itemDetailsPage}>
+      {item.categories && item.categories.length > 0 && (
+        <Breadcrumb categories={item.categories} />
+      )}
+      <article aria-labelledby="item-title">
+        <header>
+          <h1 id="item-title">{item.title}</h1>
+          <img
+            src={item.picture}
+            alt={`Imagem do produto ${item.title}`}
+            width="300"
+            height="300"
+          />
+        </header>
 
-      <section aria-labelledby="item-price" role="contentinfo">
-        <h2 id="item-price">Preço</h2>
-        <p>
-          {item.price.currency} {item.price.amount}
-        </p>
-      </section>
+        <section aria-labelledby="item-price" role="contentinfo">
+          <h2 id="item-price">Preço</h2>
+          <p>
+            {item.price.currency} {item.price.amount}
+          </p>
+        </section>
 
-      <section aria-labelledby="item-description">
-        <h2 id="item-description">Descrição do Produto</h2>
-        <p>{item.description}</p>
-      </section>
+        <section aria-labelledby="item-description">
+          <h2 id="item-description">Descrição do Produto</h2>
+          <p>{item.description}</p>
+        </section>
 
-      <section aria-labelledby="item-details">
-        <h2 id="item-details">Detalhes do Produto</h2>
-        <p>Condição: {item.condition}</p>
-        <p>Quantidade vendida: {item.sold_quantity}</p>
-      </section>
-    </article>
+        <section aria-labelledby="item-details">
+          <h2 id="item-details">Detalhes do Produto</h2>
+          <p>Condição: {item.condition}</p>
+          <p>Quantidade vendida: {item.sold_quantity}</p>
+        </section>
+      </article>
+    </main>
   );
 }
 
