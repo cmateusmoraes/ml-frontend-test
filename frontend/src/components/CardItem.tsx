@@ -10,16 +10,13 @@ type CardItemProps = {
 };
 
 function CardItem({ item }: CardItemProps) {
-  const totalPrice = item.price.amount + item.price.decimals / 100;
-  const formattedPrice = convertIntToMoney(totalPrice, item.price.currency);
-
   return (
     <li className={styles.cardItem}>
       <Link
         to={`/items/${item.id}-${item.sanitized_title}`}
         aria-label={`Ver detalhes do produto ${item.title}`}>
         <img
-          srcSet={`${getProductImage(item.thumbnail_id, item.picture)} 1x, ${getProductImage(item.thumbnail_id, item.picture)}@2x 2x`}
+          src={getProductImage(item.thumbnail_id, item.picture)}
           alt={`Imagem do produto ${item.title}`}
           width="90"
           height="90"
@@ -27,7 +24,13 @@ function CardItem({ item }: CardItemProps) {
         />
         <div className={styles.text}>
           <h2>{item.title}</h2>
-          <p>{formattedPrice}</p>
+          <p>
+            {convertIntToMoney(
+              item.price.amount,
+              item.price.decimals,
+              item.price.currency,
+            )}
+          </p>
           {item.free_shipping && (
             <p className={styles.freeShipping}>Envío gratis</p>
           )}

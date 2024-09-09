@@ -13,20 +13,20 @@ function SearchForm({ query, setQuery, handleSearch }: SearchFormProps) {
     <form
       className={styles.searchForm}
       role="search"
-      aria-label="Formulário de busca de produtos"
+      aria-label="Formulario de búsqueda de productos"
       onSubmit={handleSearch}>
       <label htmlFor="search" className="visually-hidden">
-        Buscar produtos
+        Buscar productos
       </label>
       <input
         id="search"
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Buscar produtos..."
-        aria-label="Campo de busca de produtos"
+        placeholder="Buscar productos..."
+        aria-label="Campo de búsqueda de productos"
       />
-      <button type="submit" aria-label="Buscar produtos">
+      <button type="submit" aria-label="Buscar productos">
         <img src="/images/find.svg" alt="Buscar" width={16} height={21} />
       </button>
     </form>

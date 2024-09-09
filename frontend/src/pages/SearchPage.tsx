@@ -1,6 +1,8 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 
+import ErrorContainer from "../components/ErrorContainer";
+import Loading from "../components/Loading";
 import SearchResultNotFound from "../components/SearchResultNotFound";
 import SearchResults from "../components/SearchResults";
 import { useFetch } from "../hooks/useFetch";
@@ -16,8 +18,12 @@ function SearchPage() {
 
   return (
     <main role="main" aria-live="polite">
-      {error && <p role="alert">Erro ao carregar os resultados</p>}
-      {!data && query && <p>Carregando...</p>}
+      {error && (
+        <ErrorContainer>
+          Erro ao carregar os resultados da busca.
+        </ErrorContainer>
+      )}
+      {!data && query && <Loading />}
 
       {data && data.items.length > 0 ? (
         <SearchResults items={data.items} />

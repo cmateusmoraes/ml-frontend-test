@@ -1,8 +1,8 @@
 @import "../styles/variables";
 
-.searchResultNoFound {
-  max-width: 101.8rem;
-  width: 100%;
+.errorContainer {
+  width: 101.8rem;
+  max-width: 100%;
   margin: 11rem auto 0;
   display: flex;
   align-items: center;
@@ -29,10 +29,10 @@ ul {
     a {
       color: $secondary-color;
       text-decoration: none;
-    }
 
-    &:hover {
-      text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     strong {

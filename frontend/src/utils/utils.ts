@@ -1,8 +1,14 @@
-export function convertIntToMoney(value: number, currency: string): string {
+export function convertIntToMoney(
+  amount: number,
+  decimals: number,
+  currency: string,
+): string {
+  const totalPrice = amount + decimals / 100;
+
   return new Intl.NumberFormat("es-AR", {
     style: "currency",
     currency: currency,
-  }).format(value);
+  }).format(totalPrice);
 }
 
 export function getProductImage(

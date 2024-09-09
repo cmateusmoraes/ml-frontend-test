@@ -1,36 +1,30 @@
 import React from "react";
 
-import styles from "./SearchResultNotFound.module.scss";
+import ErrorContainer from "./ErrorContainer";
 
-function NoResults() {
+function SearchResultNotFound() {
   return (
-    <div className={styles.searchResultNoFound}>
-      <img
-        src="/images/not-found.svg"
-        alt="Nenhum resultado encontrado"
-        width="80"
-        height="80"
-        className={styles.icon}
-      />
-      <div className={styles.messageContainer}>
-        <h3>Não há anúncios que correspondam à sua busca</h3>
-        <ul>
-          <li>
-            <strong>Revise</strong> a <strong>ortografia</strong> da palavra.
-          </li>
-          <li>
-            Utilize <strong>palavras mais genéricas</strong> ou menos palavras.
-          </li>
-          <li>
-            <a href="/categorias" className={styles.link}>
-              Navegue pelas categorias
-            </a>{" "}
-            para encontrar um produto semelhante.
-          </li>
-        </ul>
-      </div>
-    </div>
+    <ErrorContainer>
+      <h3>No hay anuncios que coincidan con tu búsqueda.</h3>
+      <ul>
+        <li>
+          Revisa <strong>la ortografía</strong> de la palabra.
+        </li>
+        <li>
+          Utilice <strong>palabras más genéricas </strong>o menos palabras.
+        </li>
+        <li>
+          <a
+            href="https://listado.mercadolibre.com.ar/categorias"
+            target="_blank"
+            rel="noreferrer">
+            Explorar categorías
+          </a>{" "}
+          para encontrar un producto similar.
+        </li>
+      </ul>
+    </ErrorContainer>
   );
 }
 
-export default NoResults;
+export default SearchResultNotFound;

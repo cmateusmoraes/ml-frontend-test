@@ -16,7 +16,7 @@ function Breadcrumb({ categories }: BreadcrumbProps) {
       <ol className={styles.breadcrumbList}>
         {categories.map((category, index) => (
           <li key={index} className={styles.breadcrumbItem}>
-            <Link to={`/category/${category.toLowerCase()}`}>
+            <Link to={`/items?search=${category.toLowerCase()}`}>
               <span>{category}</span>
             </Link>
           </li>
