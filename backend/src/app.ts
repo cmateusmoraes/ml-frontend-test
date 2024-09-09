@@ -3,8 +3,8 @@ import express from "express";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 
-import itemsRouter from "../routes/items";
 import { config } from "./config";
+import itemsRouter from "./routes/items";
 
 const app = express();
 

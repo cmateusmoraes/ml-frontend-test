@@ -5,6 +5,7 @@ export interface ApiItem {
   sanitized_title: string;
   currency_id: string;
   price: number;
+  thumbnail_id: string;
   thumbnail: string;
   condition: string;
   shipping: {
@@ -15,6 +16,14 @@ export interface ApiItem {
 // Interface para a resposta da API
 export interface ApiResponse {
   results: ApiItem[];
+  filters: {
+    id: string;
+    values: {
+      path_from_root: {
+        name: string;
+      }[];
+    }[];
+  }[];
 }
 
 // Interface para o tipo processado (final)
@@ -27,6 +36,7 @@ export interface Item {
     amount: number;
     decimals: number;
   };
+  thumbnail_id: string;
   picture: string;
   condition: string;
   free_shipping: boolean;
