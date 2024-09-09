@@ -23,7 +23,7 @@ de software para garantir a qualidade e escalabilidade.
 
 ### Pré-requisitos
 
-- **Node.js** (versão 16 ou superior)
+- **Node.js** (versão 20 ou superior)
 - **npm** ou **yarn**
 
 ### Passo a Passo
@@ -31,8 +31,9 @@ de software para garantir a qualidade e escalabilidade.
 1. **Clonar o repositório:**
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/cmateusmoraes/ml-frontend-test.git
    ```
+    - Acessar a pasta /backend
 
 2. **Instalar dependências:**
 
