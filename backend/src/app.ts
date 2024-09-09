@@ -5,6 +5,7 @@ import helmet from "helmet";
 
 import { config } from "./config";
 import itemsRouter from "./routes/items";
+import { setupSwagger } from "./swagger";
 
 const app = express();
 
@@ -24,6 +25,9 @@ app.use(express.json());
 
 // Route registration
 app.use("/api", itemsRouter);
+
+// Swagger
+setupSwagger(app);
 
 app.get("/", (req, res) => {
   res.send("API is running");

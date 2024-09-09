@@ -5,6 +5,55 @@ import { config } from "../config";
 import { ApiItem, ApiResponse, Item } from "../types/apiTypes";
 
 const router = express.Router();
+/**
+ * @swagger
+ * /api/items:
+ *   get:
+ *     summary: Search for items
+ *     description: Retrieve a list of items from Mercado Libre based on a search query.
+ *     parameters:
+ *       - in: query
+ *         name: q
+ *         required: true
+ *         description: Search query string
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: A list of items
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 author:
+ *                   type: object
+ *                   properties:
+ *                     name:
+ *                       type: string
+ *                     lastname:
+ *                       type: string
+ *                 categories:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 items:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Item'
+ *       400:
+ *         description: Query is required
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Query is required"
+ *       500:
+ *         description: Error fetching items from external API
+ */
 
 // Route to search for items
 router.get("/items", async (req, res) => {
@@ -68,7 +117,50 @@ router.get("/items", async (req, res) => {
   }
 });
 
-// Route to item details by ID
+/**
+ * @swagger
+ * /api/items/{id}:
+ *   get:
+ *     summary: Get item details by ID
+ *     description: Retrieve detailed information about an item, including its description and categories.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the item to retrieve
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Item details retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 author:
+ *                   type: object
+ *                   properties:
+ *                     name:
+ *                       type: string
+ *                     lastname:
+ *                       type: string
+ *                 item:
+ *                   $ref: '#/components/schemas/ItemDetails'
+ *       404:
+ *         description: Item not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Item not found"
+ *       500:
+ *         description: Error fetching item details from external API
+ */
+
 // Route to item details by ID
 router.get("/items/:id", async (req, res) => {
   const { id } = req.params;
