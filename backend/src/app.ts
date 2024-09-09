@@ -14,8 +14,8 @@ app.use(cors({ origin: config.allowedDomain }));
 
 // Limit the number of requests per IP
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 100, // Limite de 100 requisições
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // 100 requests
 });
 
 app.use(limiter);

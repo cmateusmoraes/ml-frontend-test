@@ -69,6 +69,7 @@ router.get("/items", async (req, res) => {
 });
 
 // Route to item details by ID
+// Route to item details by ID
 router.get("/items/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -118,6 +119,9 @@ router.get("/items/:id", async (req, res) => {
       },
     });
   } catch (error) {
+    if (axios.isAxiosError(error) && error.response?.status === 404) {
+      return res.status(404).json({ message: "Item not found" });
+    }
     // Error fetching item details or categories
     console.error(error);
     res
