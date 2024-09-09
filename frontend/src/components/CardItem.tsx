@@ -14,10 +14,10 @@ function CardItem({ item }: CardItemProps) {
     <li className={styles.cardItem}>
       <Link
         to={`/items/${item.id}-${item.sanitized_title}`}
-        aria-label={`Ver detalhes do produto ${item.title}`}>
+        aria-label={`Ver detalles del producto ${item.title}`}>
         <img
           src={getProductImage(item.thumbnail_id, item.picture)}
-          alt={`Imagem do produto ${item.title}`}
+          alt={`Imagen del producto ${item.title}`}
           width="90"
           height="90"
           loading="lazy"

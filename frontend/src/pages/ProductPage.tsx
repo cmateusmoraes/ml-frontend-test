@@ -12,23 +12,27 @@ import { ItemDetails } from "../types/types";
 function ProductPage() {
   const { id } = useParams<{ id: string }>();
 
-  // Extrair apenas o ID antes do hífen ou usar string vazia como fallback
+  // Extract only the ID before the hyphen or use empty string as fallback
   const extractedId = id ? id.split("-")[0] : "";
 
-  // Chamada do hook sempre, com o ID extraído
+  // Always call the hook, with the extracted ID
   const { data, error } = useFetch<{ item: ItemDetails }>(
     extractedId ? `/items/${extractedId}` : null,
   );
 
   if (!id) {
     return (
-      <ErrorContainer>ID do item não foi fornecido na URL.</ErrorContainer>
+      <ErrorContainer>
+        El ID del artículo no se proporcionó en la URL.
+      </ErrorContainer>
     );
   }
 
   if (error)
     return (
-      <ErrorContainer>Erro ao carregar os detalhes do item.</ErrorContainer>
+      <ErrorContainer>
+        Error al cargar los detalles del artículo.
+      </ErrorContainer>
     );
 
   if (!data) return <Loading />;
@@ -53,7 +57,7 @@ function ProductPage() {
 
       <ProductDetail item={item} />
 
-      {/* Schema.org Markup para o Produto */}
+      {/* Schema.org Markup for product */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

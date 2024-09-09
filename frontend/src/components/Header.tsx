@@ -17,7 +17,7 @@ function Header({ query, setQuery, handleSearch, resetSearch }: HeaderProps) {
       <nav aria-label="Main navigation">
         <Link
           to="/"
-          aria-label="Voltar para a página inicial"
+          aria-label="Volver a la página de inicio"
           onClick={resetSearch}>
           <picture>
             <source
@@ -28,7 +28,7 @@ function Header({ query, setQuery, handleSearch, resetSearch }: HeaderProps) {
             />
             <img
               src="/images/logo_large_25years.png"
-              alt="Logo Mercado Livre"
+              alt="Mercado Libre"
               width="134"
               height="34"
             />

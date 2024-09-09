@@ -6,7 +6,7 @@ import { ApiItem, ApiResponse, Item } from "../types/apiTypes";
 
 const router = express.Router();
 
-// Rota para busca de itens
+// Route to search for items
 router.get("/items", async (req, res) => {
   const query = req.query.q;
 
@@ -27,13 +27,13 @@ router.get("/items", async (req, res) => {
       });
     }
 
-    // Extrair as categorias do filtro "category"
+    // Extract categories from the "category" filter
     const categories =
       response.data.filters
         .find((filter) => filter.id === "category")
         ?.values[0].path_from_root.map((category) => category.name) || [];
 
-    // Mapeia os resultados com o tipo Item
+    // Maps results to the Item type
     const items: Item[] = response.data.results.map(
       (item: ApiItem): Item => ({
         id: item.id,
@@ -58,23 +58,22 @@ router.get("/items", async (req, res) => {
         name: "Mateus",
         lastname: "Moraes",
       },
-      categories, // Retornar as categorias extraídas
+      categories,
       items,
     });
   } catch (error) {
-    // Erro de comunicação com a API ML
+    // Error communicating with ML API
     console.error(error);
     res.status(500).json({ message: "Error fetching items from external API" });
   }
 });
 
-// Rota para detalhes do item por ID
-// Rota para detalhes do item por ID
+// Route to item details by ID
 router.get("/items/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    // Busca detalhes do item e descrição
+    // Search item details and description
     const [itemResponse, descriptionResponse] = await Promise.all([
       axios.get(`${config.apiBaseUrl}/items/${id}`),
       axios.get(`${config.apiBaseUrl}/items/${id}/description`),
@@ -87,7 +86,7 @@ router.get("/items/:id", async (req, res) => {
       return res.status(404).json({ message: "Item not found" });
     }
 
-    // Busca as categorias usando o category_id do item
+    // Search categories using the item's category_id
     const categoriesResponse = await axios.get(
       `${config.apiBaseUrl}/categories/${item.category_id}`,
     );
@@ -119,7 +118,7 @@ router.get("/items/:id", async (req, res) => {
       },
     });
   } catch (error) {
-    // Erro ao buscar detalhes do item ou categorias
+    // Error fetching item details or categories
     console.error(error);
     res
       .status(500)

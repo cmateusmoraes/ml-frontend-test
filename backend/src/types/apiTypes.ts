@@ -1,4 +1,3 @@
-// Interface para os itens da API
 export interface ApiItem {
   id: string;
   title: string;
@@ -13,7 +12,6 @@ export interface ApiItem {
   };
 }
 
-// Interface para a resposta da API
 export interface ApiResponse {
   results: ApiItem[];
   filters: {
@@ -26,7 +24,6 @@ export interface ApiResponse {
   }[];
 }
 
-// Interface para o tipo processado (final)
 export interface Item {
   id: string;
   title: string;

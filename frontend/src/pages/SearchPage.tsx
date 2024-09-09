@@ -31,7 +31,7 @@ function SearchPage() {
 
       {error && (
         <ErrorContainer>
-          Erro ao carregar os resultados da busca.
+          Error al cargar los resultados de la búsqueda.
         </ErrorContainer>
       )}
       {!data && query && <Loading />}

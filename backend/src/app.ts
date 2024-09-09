@@ -12,7 +12,7 @@ app.use(helmet());
 
 app.use(cors({ origin: config.allowedDomain }));
 
-// Limitar o número de requisições por IP
+// Limit the number of requests per IP
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutos
   max: 100, // Limite de 100 requisições
@@ -22,7 +22,7 @@ app.use(limiter);
 
 app.use(express.json());
 
-// Registro das rotas
+// Route registration
 app.use("/api", itemsRouter);
 
 app.get("/", (req, res) => {
