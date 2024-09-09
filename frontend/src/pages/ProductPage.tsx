@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 
 import Breadcrumb from "../components/Breadcrumb";
@@ -36,6 +37,16 @@ function ProductPage() {
 
   return (
     <main>
+      <Helmet>
+        <title>{item.title} - Mercado Libre - Mateus Moraes</title>
+        <meta
+          name="description"
+          content={`Compra ${item.title} en Mercado Libre. ¡Encuentra las mejores ofertas por ${item.title} en Mercado Livre Brasil!`}
+        />
+        <link rel="preload" href="/images/logo_large_25years.png" as="image" />
+        <link rel="preload" href="/images/logo_small_25years.png" as="image" />
+      </Helmet>
+
       {item.categories && item.categories.length > 0 && (
         <Breadcrumb categories={item.categories} />
       )}

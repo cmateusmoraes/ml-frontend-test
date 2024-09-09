@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { useSearchParams } from "react-router-dom";
 
 import ErrorContainer from "../components/ErrorContainer";
@@ -18,6 +19,16 @@ function SearchPage() {
 
   return (
     <main role="main" aria-live="polite">
+      <Helmet>
+        <title>Buscar - Mercado Libre - Mateus Moraes</title>
+        <meta
+          name="description"
+          content="Busca productos en Mercado Libre. ¡Encuentra las mejores ofertas en Mercado Livre Brasil!"
+        />
+        <link rel="preload" href="/images/logo_large_25years.png" as="image" />
+        <link rel="preload" href="/images/logo_small_25years.png" as="image" />
+      </Helmet>
+
       {error && (
         <ErrorContainer>
           Erro ao carregar os resultados da busca.
