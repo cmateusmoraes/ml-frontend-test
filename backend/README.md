@@ -47,7 +47,7 @@ de software para garantir a qualidade e escalabilidade.
 
    ```bash
    PORT=3000
-   ALLOWED_DOMAIN=http://localhost:3000
+   ALLOWED_DOMAIN=http://localhost:3001
    API_BASE_URL=https://api.mercadolibre.com
    ```
 
